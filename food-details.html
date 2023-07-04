@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+moweb.mohammadalhamma.repl.co
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details</title>
+  <style>
+    body {
+      background-image: url("https://cdn.wallpapersafari.com/54/35/AXfS8j.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .food-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .food-image {
+      flex: 0 0 400px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .rating-stars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .rating-stars i {
+      color: gold;
+    }
+
+    .food-description {
+      flex: 1 0 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .ingredients {
+      flex: 1 0 100%;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .cart-system {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-label {
+      margin: 0 10px;
+    }
+
+    .quantity-button {
+      padding: 5px 10px;
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-to-cart-button {
+      padding: 10px 20px;
+      background-color: beige;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="food-details">
+    <div class="food-image-container">
+      <img id="food-image" class="food-image" src="" alt="Food Picture">
+    </div>
+    <div class="food-info">
+      <h2 id="food-description" class="food-description"></h2>
+      <div id="rating-stars" class="rating-stars"></div>
+      <p id="ingredients" class="ingredients"></p>
+      <div class="cart-system">
+        <div id="quantity-controls" class="quantity-controls">
+          <button id="decrement-button" class="quantity-button">-</button>
+          <span id="quantity-label" class="quantity-label">0</span>
+          <button id="increment-button" class="quantity-button">+</button>
+        </div>
+        <button id="add-to-cart-button" class="add-to-cart-button">ضع في السلة</button>
+      </div>
+      <div class="price" id="price"></div>
+    </div>
+  </div>
+
+  <script>
+   
+    const params = new URLSearchParams(window.location.search);
+    const foodId = params.get('food');
+
+   
+    function updateFoodDetails() {
+    
+      const foodData = fetchFoodData(foodId); 
+
+    
+      document.getElementById('food-image').src = foodData.image;
+      document.getElementById('food-description').textContent = foodData.description;
+      document.getElementById('rating-stars').innerHTML = generateRatingStars(foodData.rating);
+      document.getElementById('ingredients').textContent = 'Ingredients: ' + foodData.ingredients.join(', ');
+      updatePrice(foodData.price);
+    }
+
+  
+    function updatePrice(price) {
+      const quantity = parseInt(document.getElementById('quantity-label').textContent);
+      const totalPrice = price * quantity;
+      document.getElementById('price').textContent = 'Price: $' + totalPrice.toFixed(2);
+    }
+
+    
+    function fetchFoodData(foodId) {
+     
+      const foodItems = [
+        {
+          id: 1,
+          image: 'https://th.bing.com/th/id/OIP.xCBuJwRXnDaBl0o6LkU8xQHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          description: 'Food 1',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+        {
+          id: 2,
+          image: 'https://th.bing.com/th?id=OIP.maQpFJiRuDMauaTZ3N7KiQHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
+          description: 'Food 2',
+          rating: 4.2,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 8.99
+        },
+         
+        {
+          id: 6,
+          image: 'https://th.bing.com/th?id=OIP.maQpFJiRuDMauaTZ3N7KiQHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
+          description: 'Food 6',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+         {
+          id: 7,
+          image: 'https://th.bing.com/th/id/OIP.xCBuJwRXnDaBl0o6LkU8xQHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          description: 'Food 7',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+           {
+          id: 11,
+          image: 'https://th.bing.com/th/id/OIP.xCBuJwRXnDaBl0o6LkU8xQHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          description: 'Food 11',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+           {
+          id: 12,
+          image: 'https://th.bing.com/th/id/OIP.xCBuJwRXnDaBl0o6LkU8xQHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          description: 'Food 12',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+   {
+          id: 101,
+          image: 'https://th.bing.com/th/id/OIP.xCBuJwRXnDaBl0o6LkU8xQHaHa?w=160&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          description: 'Food 101',
+          rating: 4.5,
+          ingredients: ['Lemon', 'Pepper', 'Eggs', 'Yogurt'],
+          price: 9.99
+        },
+   
+      ];
+
+      return foodItems.find(item => item.id == foodId);
+    }
+
+   
+    function generateRatingStars(rating) {
+      const maxRating = 5;
+      const fullStars = Math.floor(rating);
+      const halfStar = Math.ceil(rating - fullStars);
+      const emptyStars = maxRating - fullStars - halfStar;
+
+      let starsHTML = '';
+      for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fas fa-star"></i>';
+      }
+      if (halfStar) {
+        starsHTML += '<i class="fas fa-star-half-alt"></i>';
+      }
+      for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="far fa-star"></i>';
+      }
+
+      return starsHTML;
+    }
+
+    document.getElementById('increment-button').addEventListener('click', function () {
+      const quantityLabel = document.getElementById('quantity-label');
+      const currentQuantity = parseInt(quantityLabel.textContent);
+      quantityLabel.textContent = currentQuantity + 1;
+      updatePrice();
+    });
+
+    
+    document.getElementById('decrement-button').addEventListener('click', function () {
+      const quantityLabel = document.getElementById('quantity-label');
+      const currentQuantity = parseInt(quantityLabel.textContent);
+      if (currentQuantity > 0) {
+        quantityLabel.textContent = currentQuantity - 1;
+        updatePrice();
+      }
+    });
+
+    
+    document.getElementById('add-to-cart-button').addEventListener('click', function () {
+      const quantity = parseInt(document.getElementById('quantity-label').textContent);
+      const foodDescription = document.getElementById('food-description').textContent;
+      const price = parseFloat(document.getElementById('price').textContent.replace('Price: $', ''));
+      const totalPrice = price * quantity;
+            alert('Added to cart:\n' + foodDescription + '\nQuantity: ' + quantity + '\nTotal Price: $' + totalPrice.toFixed(2));
+    });
+
+    
+    updateFoodDetails();
+  </script>
+
+</body>
+
+</html>
+
+    
+    updateFoodDetails();
+  </script>
+
+</body>
+
+</html>

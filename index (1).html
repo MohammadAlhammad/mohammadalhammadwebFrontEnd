@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      background-image: url("https://www.acedarspoon.com/wp-content/uploads/2020/09/Stuffed-Grape-Leaves-Image-3-1536x1024.jpg");
+      background-repeat: no-repeatthe other files,;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .top-section {
+      background-color: #ff6f3c;
+      padding: 10px;
+      text-align: center;                                          
+    }
+    .social-icons {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .social-icons img {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+    h1 {
+      color: #ff6f3c;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #ff6f3c;
+      margin-bottom: 20px;
+    }
+    ul#city-list {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+    ul#city-list li {
+      margin: 0 15px;
+      cursor: pointer;
+      color: #ff6f3c;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      font-size: 2em;
+    }
+    ul#city-list li:hover {
+      color: #d1410c;
+    }
+    .food-templates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .food-template {
+      width: 300px;
+      padding: 20px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .food-template:hover {
+      transform: scale(1.05);
+    }
+    .food-template h2 {
+      color: #ff6f3c;
+      margin-top: 0;
+    }
+    .food-template img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    #choice-button {
+      background-color: #00a8e8;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    #choice-button:hover {
+      background-color: #0081b3;
+    }
+    #tech-support {
+      background-color: #f2f2f2;
+      padding: 20px;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+    #tech-support h3 {
+      color: #333;
+      margin: 0;
+      font-weight: bold;
+    }
+    #tech-support p {
+      color: #777;
+      margin: 5px 0;
+    }
+    #city-info {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    #top-rated-button {
+      background-color: #ff6f3c;
+      padding: 10px 20px;
+      margin-right: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    #top-rated-button:hover {
+      background-color: #d1410c;
+    }
+  
+    @media (max-width: 768px) {
+      .food-template {
+        width: 100%;
+        margin: 20px 0;
+      }
+    }
+    @media (max-width: 480px) {
+      #city-info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+      #top-rated-button {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-section">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/your_instagram" target="_blank" title="Follow us on Instagram"><img src="instagram.png" alt="Instagram"></a>
+      <a href="https://www.snapchat.com/add/your_snapchat" target="_blank" title="Add us on Snapchat"><img src="snapchat.png" alt="Snapchat"></a>
+    </div>
+  </div>
+  <h1>هلا ومرحبا </h1>
+  <div id="city-info">
+    <button id="top-rated-button">أعلى التقييمات</button>
+  </div>
+  <ul id="city-list">
+    <li><a href="city1.html">المدينة المنورة</a></li>
+    <li><a href="city2.html">الشرقية</a></li>
+    <li><a href="city1.html">القصيم</a></li>
+    <li><a href="city3.html">عسير</a></li>
+    <li><a href="city4.html">مكة</a></li>
+    <li><a href="city5.html">حائل</a></li>
+    <li><a href="city6.html">جدة</a></li>
+    <li><a href="city7.html">الرياض</a></li>
+  </ul>
+  <div class="food-templates">
+    <a href="food-details.html?food=1" class="food-template">
+      <h2>Food 1</h2>
+      <img src="food1.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+      <p>عسير</p>
+    </a>
+    <a href="food-details.html?food=2" class="food-template">
+      <h2>Food 2</h2>
+      <img src="food2.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+      <p>بريدة, القصيم</p>
+    </a>
+    <a href="food-details.html?food=3" class="food-template">
+      <h2>Food 3</h2>
+      <img src="food3.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+      <p>الرياض</p>
+    </a>
+  </div>
+  <a href="NewChef.html" id="choice-button">وش رأيك نجرب طبخك؟</a>
+  <div id="tech-support">
+    <h3>للدعم الفني</h3>
+    <p><a href="tel:+123456789">Phone: +123456789</a></p>
+    <p><a href="mailto:support@example.com">Email: support@example.com</a></p>
+    <div class="search-bar">
+      <input type="text" placeholder="وش مشتهي تاكل" />
+      <button type="submit">Search</button>
+    </div>
+    <script>
+     
+      var topRatedButton = document.getElementById("top-rated-button");
+      topRatedButton.addEventListener("click", function() {
+       
+        window.location.href = "toprated.html";
+      });
+
+       if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+
+    function successCallback(position) {
+      
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      
+      
+      document.cookie = "latitude=" + latitude + "; path=/";
+      document.cookie = "longitude=" + longitude + "; path=/";
+    }
+
+    function errorCallback(error) {
+      console.log("Error getting user's location:", error);
+    }
+    </script>
+  </body>
+</html>

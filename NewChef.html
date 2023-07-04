@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewChef</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-heading {
+      text-align: center;
+      color: #ff6f3c;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+      text-align: right; /* Align labels to the right */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: right; 
+    }
+
+    .form-group button[type="submit"] {
+      background-color: #ff6f3c;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .form-group button[type="submit"]:hover {
+      background-color: #ff915b;
+    }
+
+    .welcome-bar {
+      text-align: right; 
+      margin-bottom: 20px;
+    }
+
+    .welcome-text {
+      color: #ff6f3c;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    .delicious-emoji {
+      font-size: 18px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .feature-list {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+      text-align: right; 
+    }
+
+    .feature-list li {
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    .feature-list li span {
+      color: #ff6f3c;
+      font-weight: bold;
+    }
+
+      .form-group label.checkbox-label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-group .terms-text {
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .form-group .terms-link {
+      color: #ff6f3c;
+      text-decoration: underline;
+    
+    }
+  </style>
+</head>
+
+<body>
+  
+
+  <div class="signup-container">
+    <h2 class="signup-heading">مرحباً بالطباخ الماهر</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">الأسم الكريم:</label>
+        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">رقم الجوال:</label>
+        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم جوالك" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">اسم المدينة:</label>
+        <input type="text" id="city" name="city" placeholder="أدخل اسم المدينة" required>
+      </div>
+
+      <div class="form-group">
+        <ul class="feature-list">
+          <li><span>&#10003;</span>  مصدر دخل ممتاز</li>
+          <li><span>&#10003;</span> مكافأة للطباخ الأكثر بيعا</li>
+          <li><span>&#10003;</span>اقتراحات و ترشيح للدورات </li>
+        </ul>
+      </div>
+
+      <div class="form-group">
+         <input type="button" value="Submit" onclick="redirectToNewChefPage()">
+  </form>
+      </div>
+    </form>
+  </div>
+
+ <div class="form-group">
+        <label for="agree" class="checkbox-label">
+          <input type="checkbox" id="agree" name="agree" required>
+          أوافق على الشروط والأحكام
+        </label>
+        <div class="terms-text">
+          بالتسجيل، أنت توافق على <a href="terms.html" class="terms-link">الشروط والأحكام</a>.
+        </div>
+      </div>
+
+   <script>
+    function redirectToNewChefPage() {
+  var name = document.getElementById('name').value;
+  var number = document.getElementById('number').value;
+  var city = document.getElementById('city').value;
+
+  var subject = encodeURIComponent('Contact Form Submission');
+  var body = encodeURIComponent('Name: ' + name + '\nNumber: ' + number + '\nCity: ' + city);
+  var mailtoUrl = 'mailto:latheeth10@gmail.com?subject=' + subject + '&body=' + body;
+
+  window.location.href = mailtoUrl;
+}
+
+    }
+  </script>
+</body>
+</html>
