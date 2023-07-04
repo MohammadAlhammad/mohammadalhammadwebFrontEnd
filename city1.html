@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City 1</title>
+  <style>
+    body {
+      background-image: url("https://cdn.wallpapersafari.com/54/35/AXfS8j.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .food-templates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .food-template {
+      width: 300px;
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .food-template:hover {
+      transform: scale(1.05);
+    }
+
+    .food-template h2 {
+      color: orange;
+      margin-top: 0;
+    }
+
+    .food-template img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .food-template {
+        width: 100%;
+        margin: 20px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>City 1</h1>
+
+ <div class="food-templates">
+    <a href="food-details.html?food=31" class="food-template">
+      <h2>Food 31</h2>
+      <img src="food31.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+    </a>
+    <a href="food-details.html?food=32" class="food-template">
+      <h2>Food 32</h2>
+      <img src="food32.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+    </a>
+    <a href="food-details.html?food=33" class="food-template">
+      <h2>Food 33</h2>
+      <img src="food33.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+    </a>
+    <a href="food-details.html?food=34" class="food-template">
+      <h2>Food 34</h2>
+      <img src="food34.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+    </a>
+    <a href="food-details.html?food=35" class="food-template">
+      <h2>Food 35</h2>
+      <img src="food35.jpg" alt="Food Picture">
+      <p>Lemon, Pepper, Eggs, Yogurt</p>
+    </a>
+  </div>
+</body>
+
+</html>
